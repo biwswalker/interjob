@@ -89,7 +89,7 @@ export default function InterestedForm() {
         phonenumber: values.phoneNumber,
       };
       await axios.post(
-        `${process.env.NEXT_PUBLIC_BASEAPI}/interested/api`,
+        `${process.env.NEXT_PUBLIC_BASEAPI || ""}/interested/api`,
         data
       );
       enqueueSnackbar({

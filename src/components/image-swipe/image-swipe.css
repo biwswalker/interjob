@@ -1,0 +1,4 @@
+.pswp__img {
+  object-fit: contain;
+  background-color: transparent !important;
+}

@@ -88,7 +88,10 @@ export default function InterestedForm() {
         age: values.age,
         phonenumber: values.phoneNumber,
       };
-      await axios.post("https://interjob-n0fasmoil-jennarongs-projects.vercel.app/interested/api", data);
+      await axios.post(
+        `${process.env.NEXT_PUBLIC_BASEAPI}/interested/api`,
+        data
+      );
       enqueueSnackbar({
         message: "เราได้รับข้อมูลแล้ว กรุณารอทีมงานของเราติดต่อไป",
         variant: "success",

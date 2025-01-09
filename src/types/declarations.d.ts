@@ -3,6 +3,7 @@ declare namespace NodeJS {
     NEXT_PUBLIC_SHEET_ID: string;
     NEXT_PUBLIC_SHEET_NAME: string;
     NEXT_PUBLIC_SHEET_RAGE: string;
+    NEXT_PUBLIC_BASEAPI: string;
     NEXT_PUBLIC_GOOGLEAPI_TYPE: string;
     NEXT_PUBLIC_GOOGLEAPI_PROJECT_ID: string;
     NEXT_PUBLIC_GOOGLEAPI_PRIVATE_KEY_ID: string;

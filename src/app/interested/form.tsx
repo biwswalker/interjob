@@ -88,7 +88,7 @@ export default function InterestedForm() {
         age: values.age,
         phonenumber: values.phoneNumber,
       };
-      await axios.post("/interested/api", data);
+      await axios.post("http://127.0.0.1/interested/api", data);
       enqueueSnackbar({
         message: "เราได้รับข้อมูลแล้ว กรุณารอทีมงานของเราติดต่อไป",
         variant: "success",

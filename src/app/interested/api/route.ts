@@ -9,14 +9,14 @@ async function _getGoolgeSheetClient() {
   const auth = new google.auth.GoogleAuth({
     scopes: ["https://www.googleapis.com/auth/spreadsheets"],
     credentials: {
-      type: process.env.NEXT_PUBLIC_GOOGLEAUTH_TYPE,
-      project_id: process.env.NEXT_PUBLIC_GOOGLEAUTH_PROJECT_ID,
-      private_key_id: process.env.NEXT_PUBLIC_GOOGLEAUTH_PRIVATE_KEY_ID,
+      type: process.env.NEXT_PUBLIC_GOOGLEAPI_TYPE,
+      project_id: process.env.NEXT_PUBLIC_GOOGLEAPI_PROJECT_ID,
+      private_key_id: process.env.NEXT_PUBLIC_GOOGLEAPI_PRIVATE_KEY_ID,
       private_key: normalizeString(
-        process.env.NEXT_PUBLIC_GOOGLEAUTH_PRIVATE_KEY
+        process.env.NEXT_PUBLIC_GOOGLEAPI_PRIVATE_KEY
       ),
-      client_email: process.env.NEXT_PUBLIC_GOOGLEAUTH_CLIENT_EMAIL,
-      client_id: process.env.NEXT_PUBLIC_GOOGLEAUTH_CLIENT_ID,
+      client_email: process.env.NEXT_PUBLIC_GOOGLEAPI_CLIENT_EMAIL,
+      client_id: process.env.NEXT_PUBLIC_GOOGLEAPI_CLIENT_ID,
     },
   });
   return google.sheets({ version: "v4", auth });

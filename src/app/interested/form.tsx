@@ -87,8 +87,7 @@ export default function InterestedForm() {
       formData.append("name", values.name || "");
       formData.append("age", values.age || "");
       formData.append("phonenumber", values.phoneNumber || "");
-      const api_url =
-        "https://script.google.com/macros/s/AKfycbw50obeBsqFdERq9lMQN4JLxnDkalP0Ahgn5126bQD3mZmBPwHQLXdWNNM4ae-heLbi/exec";
+      const api_url = process.env.NEXT_PUBLIC_GOOGLE_SHEET_API;
       await axios.postForm(api_url, formData);
       enqueueSnackbar({
         message: "เราได้รับข้อมูลแล้ว กรุณารอทีมงานของเราติดต่อไป",

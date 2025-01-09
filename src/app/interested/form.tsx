@@ -83,12 +83,12 @@ export default function InterestedForm() {
   async function onSubmit(values: InterestedFormValue) {
     setLoading(true);
     try {
-      const formData = new FormData();
-      formData.append("name", values.name || "");
-      formData.append("age", values.age || "");
-      formData.append("phonenumber", values.phoneNumber || "");
-      const api_url = process.env.NEXT_PUBLIC_GOOGLE_SHEET_API;
-      await axios.postForm(api_url, formData);
+      const data = {
+        name: values.name,
+        age: values.age,
+        phonenumber: values.phoneNumber,
+      };
+      await axios.post("/interested/api", data);
       enqueueSnackbar({
         message: "เราได้รับข้อมูลแล้ว กรุณารอทีมงานของเราติดต่อไป",
         variant: "success",

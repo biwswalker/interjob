@@ -12,9 +12,15 @@ import {
 import Iconify from "@components/iconify";
 import NextLink from "next/link";
 import { get } from "lodash";
-import { ROOTS, ROOTS_CONTENT, ROOTS_INTEREST } from "@constants/routes";
+import {
+  ROOTS,
+  ROOTS_CONTENT,
+  ROOTS_INTEREST,
+  ROOTS_PRIVACY,
+} from "@constants/routes";
 import Image from "@components/image";
 import { useRouter } from "next/navigation";
+
 const languages = {
   valueCompany: "บริษัท อินเตอร์จ๊อบ จำกัด",
   labelContact: "ติดต่อ",
@@ -25,7 +31,7 @@ const LINKS = [
     headline: "อินเตอร์จ๊อบ",
     children: [
       { name: "หน้าหลัก", href: ROOTS },
-      { name: "เนื้อหา", href: ROOTS_CONTENT },
+      { name: "บทความ", href: ROOTS_CONTENT },
     ],
   },
   {
@@ -33,7 +39,7 @@ const LINKS = [
     children: [
       {
         name: "เงื่อนไขและข้อกำหนด",
-        href: "/privacy-policy",
+        href: ROOTS_PRIVACY,
         target: "_blank",
       },
     ],
@@ -74,7 +80,7 @@ export default function Footer({ version }: FooterProps) {
   }, []);
 
   return (
-    <Box component="footer" sx={{ bgcolor: "background.default", }}>
+    <Box component="footer" sx={{ bgcolor: "background.default" }}>
       <Divider />
 
       <Container sx={{ pt: 4 }}>

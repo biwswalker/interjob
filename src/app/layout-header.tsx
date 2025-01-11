@@ -27,11 +27,10 @@ import NextLink from "next/link";
 const navConfig = [
   {
     title: "หน้าหลัก",
-    // icon: <Iconify icon="eva:home-fill" />,
     path: "/",
   },
   {
-    title: "เนื้อหา",
+    title: "บทความ",
     path: "/contents",
   },
 ];
@@ -127,6 +126,7 @@ export default function Header({ forceOffSetTop = false, activeMenu }: Header) {
                 duration: theme.transitions.duration.shorter,
               }
             ),
+            ...bgBlur({ color: theme.palette.common.white, opacity: 0.64 }),
             ...(isOffset && {
               ...bgBlur({ color: theme.palette.common.white, opacity: 0.88 }),
             }),

@@ -39,7 +39,7 @@ const images: CarouselData[] = [
   },
   {
     id: "5",
-    image: "/assets/images/content_5.png",
+    image: "/assets/images/content_5.jpg",
     title: "มันมีที่มาอย่างไร?",
     description:
       "จากวิทยาลัยแฮมพ์เด็น-ซิดนีย์ ในรัฐเวอร์จิเนียร์ นำคำภาษาละตินคำว่า consectetur ซึ่งหาคำแปลไม่ได้จาก Lorem Ipsum ตอนหนึ่งมาค้นเพิ่มเติม",

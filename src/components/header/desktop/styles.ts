@@ -26,7 +26,7 @@ export const ListItem = styled(ListItemButton, {
   return {
     ...theme.typography.body1,
     padding: 0,
-    color: theme.palette.common.white,
+    color: theme.palette.text.primary,
     transition: theme.transitions.create("opacity", {
       duration: theme.transitions.duration.shorter,
     }),

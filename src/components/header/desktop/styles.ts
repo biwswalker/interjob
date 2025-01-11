@@ -24,21 +24,21 @@ export const ListItem = styled(ListItemButton, {
   };
 
   return {
-    ...theme.typography.body2,
+    ...theme.typography.body1,
     padding: 0,
-    color: theme.palette.text.primary,
+    color: theme.palette.common.white,
     transition: theme.transitions.create("opacity", {
       duration: theme.transitions.duration.shorter,
     }),
     "&:hover": {
-      color: theme.palette.primary.light,
+      color: theme.palette.primary.dark,
       // opacity: 0.48,
       backgroundColor: "transparent",
     },
     // Sub item
     ...(subItem && {
       ...theme.typography.body2,
-      color: theme.palette.text.primary,
+      color: theme.palette.text.secondary,
     }),
     // isOffset
     ...(isOffset && {
@@ -49,7 +49,7 @@ export const ListItem = styled(ListItemButton, {
       color: theme.palette.primary.main,
       "&::before": dotActive,
     }),
-    // Active sub item
+    // Active sub item 
     ...(active &&
       subItem && {
         ...theme.typography.subtitle2,

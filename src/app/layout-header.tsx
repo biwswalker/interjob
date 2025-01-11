@@ -128,7 +128,7 @@ export default function Header({ forceOffSetTop = false, activeMenu }: Header) {
               }
             ),
             ...(isOffset && {
-              ...bgBlur({ color: theme.palette.common.white, opacity: 0.8 }),
+              ...bgBlur({ color: theme.palette.common.white, opacity: 0.88 }),
             }),
           }}
         >
@@ -139,8 +139,7 @@ export default function Header({ forceOffSetTop = false, activeMenu }: Header) {
               justifyContent: "space-between",
             }}
           >
-            <Logo sx={{ height: { xs: 44, md: 72 } }} />
-            {/* <Logo sx={{ height: 72, opacity: isOffset ? 0 : 1 }} /> */}
+            <Logo sx={{ height: { xs: 44, md: 64 } }} />
             <Box sx={{ flexGrow: 1 }} />
             {isDesktop && (
               <NavDesktop
@@ -191,7 +190,7 @@ function Shadow({ sx, ...other }: BoxProps) {
         borderRadius: "50%",
         position: "absolute",
         width: `calc(100% - 48px)`,
-        boxShadow: (theme) => theme.customShadows.primary,
+        boxShadow: (theme) => theme.customShadows.card,
         ...sx,
       }}
       {...other}

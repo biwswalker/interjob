@@ -74,7 +74,7 @@ export default function Footer({ version }: FooterProps) {
   }, []);
 
   return (
-    <Box component="footer" sx={{ bgcolor: "background.default" }}>
+    <Box component="footer" sx={{ bgcolor: "background.default", }}>
       <Divider />
 
       <Container sx={{ pt: 4 }}>

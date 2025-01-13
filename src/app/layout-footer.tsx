@@ -22,7 +22,7 @@ import Image from "@components/image";
 import { useRouter } from "next/navigation";
 
 const languages = {
-  valueCompany: "บริษัท อินเตอร์จ๊อบ จำกัด",
+  valueCompany: "บริษัท อินเตอร์จ๊อบ1999 จำกัด",
   labelContact: "ติดต่อ",
 };
 

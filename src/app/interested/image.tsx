@@ -31,7 +31,7 @@ export default function ImageInterest() {
           bgcolor: "background.default",
           maxWidth: "var(--layout-auth-content-width)",
           overflow: 'hidden',
-          maxHeight: '508px'
+          maxHeight: '580px'
         }}
       >
         <Image src="/assets/images/interview.jpg" />

@@ -8,7 +8,7 @@ import FormProvider, {
 import { Box, MenuItem, Stack, Typography, useTheme } from "@mui/material";
 import * as Yup from "yup";
 import REGEX from "@constants/regex";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import Iconify from "@components/iconify";
@@ -21,6 +21,7 @@ interface InterestedFormValue {
   name?: string;
   age?: string;
   phoneNumber?: string;
+  province?: string;
   acceptPolicy?: boolean;
 }
 
@@ -52,13 +53,33 @@ export const AGES = [
   { value: "40 ขึ้นไป", label: "40 ปี ขึ้นไป" },
 ];
 
+interface IProvince {
+  id: number;
+  grography_id: number;
+  name_th: string;
+  name_en: string;
+  created_at: string;
+  updated_at: string;
+  deleted_at?: string;
+}
+
+const provinceApi =
+  "https://raw.githubusercontent.com/kongvut/thai-province-data/master/api_province.json";
+export const getProvince = async (): Promise<IProvince[]> => {
+  const provinceRaw = await axios.get(provinceApi);
+  const result = get(provinceRaw, "data", []);
+  return result;
+};
+
 export default function InterestedForm() {
   const { enqueueSnackbar } = useSnackbar();
   const [loading, setLoading] = useState(false);
+  const [provinces, setProvinces] = useState<IProvince[]>([]);
   const theme = useTheme();
   const InterestSchema = Yup.object().shape({
     name: Yup.string().required("ระบุชื่อติดต่อ"),
     age: Yup.string().required("ระบุอายุ"),
+    province: Yup.string().required("ระบุจีงหวัด"),
     phoneNumber: Yup.string().matches(
       REGEX.CONTECT_NUMBER,
       "ระบุหมายเลขติดต่อ"
@@ -72,6 +93,7 @@ export default function InterestedForm() {
       acceptPolicy: false,
       age: "",
       name: "",
+      province: "",
       phoneNumber: "",
     },
   });
@@ -80,17 +102,32 @@ export default function InterestedForm() {
 
   const isAcceptedPolicy = watch("acceptPolicy");
 
+  useEffect(() => {
+    getProvinces();
+  }, []);
+
+  async function getProvinces() {
+    const provinces = await getProvince();
+    setProvinces(provinces);
+  }
+
   async function onSubmit(values: InterestedFormValue) {
     setLoading(true);
     try {
-      const data = {
-        name: values.name,
-        age: values.age,
-        phonenumber: values.phoneNumber,
+      const body = {
+        data: [
+          [
+            values.name,
+            values.age,
+            values.phoneNumber,
+            values.province,
+            new Date().toISOString(),
+          ],
+        ],
       };
       await axios.post(
         `${process.env.NEXT_PUBLIC_BASEAPI || ""}/interested/api`,
-        data
+        body
       );
       enqueueSnackbar({
         message: "เราได้รับข้อมูลแล้ว กรุณารอทีมงานของเราติดต่อไป",
@@ -105,7 +142,7 @@ export default function InterestedForm() {
       });
     } finally {
       setLoading(false);
-      reset();
+      // reset();
     }
   }
 
@@ -190,6 +227,41 @@ export default function InterestedForm() {
                 label="เบอร์ติดต่อ*"
                 slotProps={{ inputLabel: { shrink: true } }}
               />
+              <RHFSelect
+                fullWidth
+                name="province"
+                label="จังหวัด*"
+                // sx={{ maxWidth: { xs: "unset", sm: "156px" } }}
+                // InputLabelProps={{ shrink: true }} // TODO: When have default value
+                slotProps={{
+                  select: {
+                    native: false,
+                    sx: {},
+                  },
+                  inputLabel: {
+                    shrink: true,
+                  },
+                }}
+              >
+                {provinces.map((option) => (
+                  <MenuItem
+                    key={option.id}
+                    value={option.name_th}
+                    sx={{
+                      mx: 1,
+                      my: 0.5,
+                      borderRadius: 0.75,
+                      typography: "body2",
+                      textTransform: "capitalize",
+                      "&:first-of-type": { mt: 0 },
+                      "&:last-of-type": { mb: 0 },
+                    }}
+                  >
+                    {option.name_th}
+                    {/* {JSON.stringify(option)} */}
+                  </MenuItem>
+                ))}
+              </RHFSelect>
               <Stack alignItems="flex-start">
                 <RHFCheckbox
                   name="acceptPolicy"

@@ -1,5 +1,4 @@
 import { google, sheets_v4 } from "googleapis";
-import { values } from "lodash";
 
 function normalizeString(key: string) {
   return key.replace(/\\n/g, "\n");
@@ -50,18 +49,22 @@ async function _writeGoogleSheet(
     insertDataOption: "INSERT_ROWS",
     requestBody: {
       majorDimension: "ROWS",
-      values: values(data),
+      values: data,
     },
   });
 }
 
 export async function POST(req: Request) {
-  const sheetId = process.env.NEXT_PUBLIC_SHEET_ID;
-  const tabName = process.env.NEXT_PUBLIC_SHEET_NAME;
-  const range = process.env.NEXT_PUBLIC_SHEET_RAGE;
-  const data = await req.json();
-  const reformData = [[data.name, data.age, data.phonenumber, new Date()]];
-  const sheet = await _getGoolgeSheetClient();
-  await _writeGoogleSheet(sheet, sheetId, tabName, range, reformData);
-  return new Response("Success", { status: 200 });
+  try {
+    const sheetId = process.env.NEXT_PUBLIC_SHEET_ID;
+    const sheetName = process.env.NEXT_PUBLIC_SHEET_NAME;
+    const range = process.env.NEXT_PUBLIC_SHEET_RAGE;
+    const request = await req.json();
+    const sheet = await _getGoolgeSheetClient();
+    const existing = await _readGoogleSheet(sheet, sheetId, sheetName, range);
+    await _writeGoogleSheet(sheet, sheetId, sheetName, range, request.data);
+    return new Response("Success", { status: 200 });
+  } catch (error) {
+    console.log("error: ", error);
+  }
 }

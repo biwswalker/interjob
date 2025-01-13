@@ -59,14 +59,15 @@ export default function Footer({ version }: FooterProps) {
         value: "facebook",
         name: "FaceBook",
         icon: "eva:facebook-fill",
-        path: "https://wwww.facebook.com/",
+        // path: "https://wwww.facebook.com/Interjob1999",
+        path: "https://www.facebook.com/profile.php?id=61560598166555",
         color: "#E02D69",
       },
       {
         value: "line",
         name: "Line",
         icon: "bi:line",
-        path: "https://line.me/R/",
+        path: "https://lin.ee/bOqkEe8",
         color: "#E02D69",
       },
       {
@@ -74,7 +75,7 @@ export default function Footer({ version }: FooterProps) {
         name: "Phone",
         icon: "mingcute:phone-line",
         color: "#E02D69",
-        path: "tel://0857117774",
+        path: "tel://0952534555",
       },
     ];
   }, []);
@@ -103,21 +104,21 @@ export default function Footer({ version }: FooterProps) {
               color="text.secondary"
               sx={{ pr: { md: 5 } }}
             >
-              ที่อยู่ 111/2 ตำบล??????? อำเภอ??????? จังหวัด??????
+              194 ถ.สนามบิน ต.รอบเวียง อ.เมือง เชียงราย 57000
             </Typography>
             <Typography
               variant="body2"
               color="text.secondary"
               sx={{ mt: 1, pr: { md: 5 } }}
             >
-              interjob@email.com
+              interjob1999@gmail.com
             </Typography>
             <Typography
               variant="body2"
               color="text.secondary"
               sx={{ pr: { md: 5 } }}
             >
-              {languages.labelContact} 099 9999 999
+              {languages.labelContact} 095 2534 555
             </Typography>
 
             <Stack
@@ -187,7 +188,7 @@ export default function Footer({ version }: FooterProps) {
                     cursor: "pointer",
                   }}
                   component={NextLink}
-                  href="https://line.me/R/"
+                  href="https://lin.ee/bOqkEe8"
                   target="_blank"
                 >
                   <Iconify width={32} icon="bi:line" color="common.white" />
@@ -195,7 +196,7 @@ export default function Footer({ version }: FooterProps) {
                     <Typography variant="body2" color="common.white">
                       ไลน์ไอดี
                     </Typography>
-                    <Typography color="common.white">@interjob</Typography>
+                    <Typography color="common.white">@interjob1999</Typography>
                   </Stack>
                 </Stack>
                 <Stack
@@ -210,7 +211,7 @@ export default function Footer({ version }: FooterProps) {
                   }}
                 >
                   <Image
-                    src="/assets/images/qr.png"
+                    src="/assets/images/qr.jpg"
                     sx={{ maxWidth: "200px" }}
                   />
                 </Stack>
@@ -252,7 +253,7 @@ export default function Footer({ version }: FooterProps) {
           color="text.disabled"
           sx={{ mt: 3, pb: 5, textAlign: { xs: "center", md: "left" } }}
         >
-          © 1999. InterJob.com (เวอร์ชั่น {version})
+          © 1999. www.อินเตอร์จ๊อบ.com (เวอร์ชั่น {version})
         </Typography>
       </Container>
     </Box>

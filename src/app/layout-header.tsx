@@ -72,36 +72,36 @@ export default function Header({ forceOffSetTop = false, activeMenu }: Header) {
               direction="row"
               spacing={0.6}
               component={NextLink}
-              href="https://wwww.facebook.com/"
+              href="https://www.facebook.com/profile.php?id=61560598166555"
               target="_blank"
               sx={{ cursor: "pointer" }}
             >
               <Iconify icon="line-md:facebook" />
-              <Typography variant="body2">อินเตอร์จ๊อบ.com</Typography>
+              <Typography variant="body2">Interjob1999</Typography>
             </Stack>
             {isDesktop && (
               <Stack
                 direction="row"
                 spacing={0.6}
                 component={NextLink}
-                href="tel://0857117774"
+                href="tel://0952534555"
                 target="_blank"
                 sx={{ cursor: "pointer" }}
               >
                 <Iconify icon="line-md:phone-twotone" />
-                <Typography variant="body2">099-9999-999</Typography>
+                <Typography variant="body2">095-2534-555</Typography>
               </Stack>
             )}
             <Stack
               direction="row"
               spacing={0.6}
               component={NextLink}
-              href="https://line.me/R/"
+              href="https://lin.ee/bOqkEe8"
               target="_blank"
               sx={{ cursor: "pointer" }}
             >
               <Iconify icon="fontisto:line" />
-              <Typography variant="body2">@interjob</Typography>
+              <Typography variant="body2">@interjob1999</Typography>
             </Stack>
           </Stack>
         </Container>

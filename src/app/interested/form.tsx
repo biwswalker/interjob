@@ -5,7 +5,15 @@ import FormProvider, {
   RHFSelect,
   RHFTextField,
 } from "@components/hook-form";
-import { Box, MenuItem, Stack, Typography, useTheme } from "@mui/material";
+import {
+  Box,
+  Button,
+  Divider,
+  MenuItem,
+  Stack,
+  Typography,
+  useTheme,
+} from "@mui/material";
 import * as Yup from "yup";
 import REGEX from "@constants/regex";
 import { useEffect, useState } from "react";
@@ -17,6 +25,7 @@ import axios from "axios";
 import { useSnackbar } from "notistack";
 import { get } from "lodash";
 import { format } from "date-fns";
+import useResponsive from "@hooks/useResponsive";
 
 interface InterestedFormValue {
   name?: string;
@@ -74,6 +83,7 @@ export const getProvince = async (): Promise<IProvince[]> => {
 
 export default function InterestedForm() {
   const { enqueueSnackbar } = useSnackbar();
+  const isDesktop = useResponsive("up", "md");
   const [loading, setLoading] = useState(false);
   const [provinces, setProvinces] = useState<IProvince[]>([]);
   const theme = useTheme();
@@ -112,6 +122,11 @@ export default function InterestedForm() {
     setProvinces(provinces);
   }
 
+  function onClineLineContact() {
+    const messageUrl = `https://lin.ee/bOqkEe8`;
+    window.open(messageUrl, "_blank");
+  }
+
   async function onSubmit(values: InterestedFormValue) {
     setLoading(true);
     try {
@@ -133,6 +148,14 @@ export default function InterestedForm() {
         message: "เราได้รับข้อมูลแล้ว กรุณารอทีมงานของเราติดต่อไป",
         variant: "success",
       });
+      setTimeout(() => {
+        const messangerId = process.env.NEXT_PUBLIC_MESSENGER_ID || "";
+        if (messangerId) {
+          const message = `สอบถามและปรึกษาไปทำงานต่างประเทศ:\nชื่อ: ${values.name}\nอายุ: ${values.age}\nเบอร์โทรศัพท์: ${values.phoneNumber}\nจังหวัด: ${values.province}`;
+          const messageUrl = `https://m.me/${messangerId}?text=${encodeURIComponent(message)}`;
+          window.open(messageUrl, "_blank");
+        }
+      }, 256);
     } catch (error) {
       const message = get(error, "message", "");
       console.log("error: ", error);
@@ -271,7 +294,11 @@ export default function InterestedForm() {
               </Stack>
             </Stack>
             {/* </Card> */}
-            <Stack alignItems="flex-start">
+            <Stack
+              spacing={{ xs: 2, md: 1 }}
+              direction={{ xs: "column", md: "row" }}
+              alignItems={{ xs: "unset", md: "flex-start" }}
+            >
               <LoadingButton
                 loading={loading}
                 disabled={!isAcceptedPolicy}
@@ -281,8 +308,46 @@ export default function InterestedForm() {
                 type="submit"
                 startIcon={<Iconify icon="mdi:email-sent" />}
               >
-                ยืนยัน, รับคำปรึกษา
+                ยืนยัน
               </LoadingButton>
+
+              {isDesktop ? (
+                <Divider
+                  orientation="vertical"
+                  sx={{
+                    backgroundColor: "divider",
+                    height: "24px",
+                    alignSelf: "center",
+                  }}
+                />
+              ) : (
+                <Divider
+                  sx={{
+                    typography: "caption",
+                    color: "text.secondary",
+                    "&::before, ::after": {
+                      borderTopStyle: "solid",
+                    },
+                  }}
+                >
+                  หรือ
+                </Divider>
+              )}
+
+              <Button
+                size="large"
+                onClick={onClineLineContact}
+                sx={{
+                  backgroundColor: "#66c05c",
+                  color: "common.white",
+                  "&:hover": {
+                    backgroundColor: "rgb(100, 162, 103)",
+                  },
+                }}
+                startIcon={<Iconify icon="bi:line" color="common.white" />}
+              >
+                รับคำปรึกษาผ่าน Line
+              </Button>
             </Stack>
           </Stack>
         </FormProvider>

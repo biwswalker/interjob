@@ -10,5 +10,6 @@ declare namespace NodeJS {
     NEXT_PUBLIC_GOOGLEAPI_PRIVATE_KEY: string;
     NEXT_PUBLIC_GOOGLEAPI_CLIENT_EMAIL: string;
     NEXT_PUBLIC_GOOGLEAPI_CLIENT_ID: string;
+    NEXT_PUBLIC_MESSENGER_ID: string;
   }
 }

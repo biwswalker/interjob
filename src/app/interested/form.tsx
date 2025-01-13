@@ -157,7 +157,7 @@ export default function InterestedForm() {
         p: theme.spacing(3, 2, 10, 2),
         [theme.breakpoints.up("md")]: {
           justifyContent: "center",
-          p: theme.spacing(10, 0, 10, 0),
+          p: theme.spacing(3, 0, 5, 0),
         },
       }}
     >
@@ -180,7 +180,7 @@ export default function InterestedForm() {
               <Stack sx={{ pb: 4 }}>
                 <Typography variant="h4">รับคำปรึกษาฟรี</Typography>
                 <Typography variant="body1" color="text.disabled">
-                  กรอกข้อมูลเพื่อรับคำปรึกษา
+                  สำหรับผู้ที่สนใจไปทำงานต่างประเทศ
                 </Typography>
               </Stack>
               <RHFTextField

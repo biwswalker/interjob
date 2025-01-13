@@ -16,7 +16,7 @@ export default function ImageInterest() {
         p: theme.spacing(3, 2, 10, 2),
         [theme.breakpoints.up("md")]: {
           justifyContent: "center",
-          p: theme.spacing(10, 0, 10, 0),
+          p: theme.spacing(3, 0, 5, 0),
         },
       }}
     >

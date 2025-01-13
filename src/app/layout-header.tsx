@@ -11,6 +11,7 @@ import {
   Button,
   Container,
   Stack,
+  styled,
   Toolbar,
   Typography,
   useTheme,
@@ -34,6 +35,23 @@ const navConfig = [
     path: "/contents",
   },
 ];
+
+// const BoxTextRunnerContainer = styled(Box)(() => ({
+//   width: '100%',
+//   overflow: "hidden",
+//   whiteSpace: "nowrap",
+//   position: "relative",
+// }));
+
+// const BoxTextRunnerWrapper = styled(Box)(() => ({
+//   display: "inline-block",
+//   paddingLeft: "100%",
+//   animation: "scroll 20s linear infinite",
+//   "@keyframes scroll": {
+//     "0%": { transform: "translateX(100%)" },
+//     "100%": { transform: "translateX(-100%)" },
+//   },
+// }));
 
 interface Header {
   forceOffSetTop?: boolean;
@@ -140,6 +158,14 @@ export default function Header({ forceOffSetTop = false, activeMenu }: Header) {
             }}
           >
             <Logo sx={{ height: { xs: 44, md: 64 } }} />
+            {/* <BoxTextRunnerContainer>
+              <BoxTextRunnerWrapper>
+                <Typography component="p" sx={{ display: "inline-block" }}>
+                  เปลี่ยนโอกาสให้เป็นความสำเร็จ ✈️ InterJob1999
+                  ดูแลครบจบทุดขั้นตอน บริษัทรับจัดหางานถูกต้องตามกฎหมาย 100%
+                </Typography>
+              </BoxTextRunnerWrapper>
+            </BoxTextRunnerContainer> */}
             <Box sx={{ flexGrow: 1 }} />
             {isDesktop && (
               <NavDesktop

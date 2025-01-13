@@ -122,6 +122,7 @@ export default function InterestedForm() {
           values.phoneNumber,
           values.province,
           format(new Date(), "MM/dd/yyyy HH:mm:ss"),
+          "WebPage",
         ],
       };
       await axios.post(

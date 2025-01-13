@@ -62,7 +62,10 @@ export async function POST(req: Request) {
     const request = await req.json();
     const sheet = await _getGoolgeSheetClient();
     const existing = await _readGoogleSheet(sheet, sheetId, sheetName, range);
-    await _writeGoogleSheet(sheet, sheetId, sheetName, range, request.data);
+    const index = existing?.length || 0;
+    await _writeGoogleSheet(sheet, sheetId, sheetName, range, [
+      [index, ...request.data],
+    ]);
     return new Response("Success", { status: 200 });
   } catch (error) {
     console.log("error: ", error);

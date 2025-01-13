@@ -16,6 +16,7 @@ import { LoadingButton } from "@mui/lab";
 import axios from "axios";
 import { useSnackbar } from "notistack";
 import { get } from "lodash";
+import { format } from "date-fns";
 
 interface InterestedFormValue {
   name?: string;
@@ -116,13 +117,11 @@ export default function InterestedForm() {
     try {
       const body = {
         data: [
-          [
-            values.name,
-            values.age,
-            values.phoneNumber,
-            values.province,
-            new Date().toISOString(),
-          ],
+          values.name,
+          values.age,
+          values.phoneNumber,
+          values.province,
+          format(new Date(), "MM/dd/yyyy HH:mm:ss"),
         ],
       };
       await axios.post(

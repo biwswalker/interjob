@@ -142,7 +142,7 @@ export default function InterestedForm() {
       });
     } finally {
       setLoading(false);
-      // reset();
+      reset();
     }
   }
 

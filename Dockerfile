@@ -19,6 +19,9 @@ WORKDIR /usr/src/interjob
 COPY --from=deps /usr/src/interjob/node_modules ./node_modules
 COPY . .
 
+# เพิ่ม heap memory ให้ Node.js
+# ENV NODE_OPTIONS="--max_old_space_size=4096"
+
 RUN npm run build
 
 

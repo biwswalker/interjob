@@ -1,4 +1,4 @@
-import { ResolvedMetadata, Metadata } from "next";
+import { Metadata } from "next";
 import { _mockBlogPosts, getPost } from "../constants";
 import Content from "./Content";
 
@@ -7,13 +7,9 @@ type Props = {
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 };
 
-export async function generateMetadata(
-  { params }: Props,
-  parent: ResolvedMetadata
-): Promise<Metadata> {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const title = (await params).title;
   const post = getPost(title);
-  const previousImages = (await parent).openGraph?.images || [];
   return {
     title: post?.sortTitle,
     description: post?.description,
@@ -22,7 +18,7 @@ export async function generateMetadata(
       title: post?.sortTitle,
       description: post?.description,
       type: "website",
-      images: [post?.thumbnail || "", ...previousImages],
+      images: [post?.thumbnail || ""],
     },
   };
 }

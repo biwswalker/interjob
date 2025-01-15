@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import nextConfig from "next/config";
 import Hero from "./landing/hero";
 import Carousel, { CarouselData } from "./landing/carousel";
@@ -12,9 +13,9 @@ const images: CarouselData[] = [
   {
     id: "1",
     image: "/assets/images/content_1.jpg",
-    title: "Lorem Ipsum คืออะไร?",
+    title: "อินเตอร์จ๊อบ คืออะไร?",
     description:
-      "Lorem Ipsum คือ เนื้อหาจำลองแบบเรียบๆ ที่ใช้กันในธุรกิจงานพิมพ์หรืองานเรียงพิมพ์ มันได้กลายมาเป็นเนื้อหาจำลองมาตรฐานของธุรกิจดังกล่าวมาตั้งแต่ศตวรรษที่ 16",
+      "อินเตอร์จ๊อบ แพลตฟอร์มเชื่อมโยงแรงงานไทยกับนายจ้างในอิสราเอล ผ่านกระบวนการถูกต้องตามกฎหมายและโปร่งใส",
   },
   {
     id: "2",
@@ -45,6 +46,19 @@ const images: CarouselData[] = [
       "จากวิทยาลัยแฮมพ์เด็น-ซิดนีย์ ในรัฐเวอร์จิเนียร์ นำคำภาษาละตินคำว่า consectetur ซึ่งหาคำแปลไม่ได้จาก Lorem Ipsum ตอนหนึ่งมาค้นเพิ่มเติม",
   },
 ];
+
+export const metadata: Metadata = {
+  title: "อินเตอร์จ๊อบ",
+  description:
+    "อินเตอร์จ๊อบ แพลตฟอร์มเชื่อมโยงแรงงานไทยกับนายจ้างในอิสราเอล ผ่านกระบวนการถูกต้องตามกฎหมายและโปร่งใส",
+  openGraph: {
+    type: "website",
+    title: "อินเตอร์จ๊อบ",
+    description:
+      "อินเตอร์จ๊อบ แพลตฟอร์มเชื่อมโยงแรงงานไทยกับนายจ้างในอิสราเอล ผ่านกระบวนการถูกต้องตามกฎหมายและโปร่งใส",
+    images: ["/assets/images/content0/thumbnail.jpg"],
+  },
+};
 
 export default function Home() {
   const { publicRuntimeConfig = {} } = nextConfig();

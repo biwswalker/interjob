@@ -7,8 +7,9 @@ import useResponsive from "@hooks/useResponsive";
 import Image from "@components/image";
 import Iconify from "@components/iconify";
 import { MotionViewport, varFade } from "@components/animate";
-import { ROOTS_INTEREST } from "@constants/routes";
+import { ROOTS_CONTENT, ROOTS_INTEREST } from "@constants/routes";
 import { useRouter } from "next/navigation";
+import NextLink from 'next/link'
 
 const StyledRoot = styled("div")(({ theme }) => ({
   textAlign: "center",
@@ -68,7 +69,7 @@ export default function AboutWhat() {
 
           <Grid2 size={{ xs: 12, md: 6, lg: 5 }}>
             <m.div variants={varFade().inRight}>
-              <Typography variant="h2" sx={{ mb: 3 }}>
+              <Typography variant="h2" sx={{ mb: 3 }} component={NextLink} href={`${ROOTS_CONTENT}/อินเตอร์จ๊อบคืออะไร`}>
                 อินเตอร์จ๊อบคืออะไร?
               </Typography>
             </m.div>

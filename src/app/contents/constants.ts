@@ -1,5 +1,8 @@
+import { find } from "lodash";
+
 export type IBlogPost = {
   id: string;
+  thumbnail: string;
   cover: string;
   title: string;
   sortTitle: string;
@@ -11,7 +14,83 @@ export type IBlogPost = {
 
 export const _mockBlogPosts: IBlogPost[] = [
   {
+    id: "0",
+    thumbnail: "/assets/images/content0/thumbnail.jpg",
+    cover: "/assets/images/content0/cover.jpg",
+    title: "อินเตอร์จ๊อบคืออะไร",
+    sortTitle: "อินเตอร์จ๊อบคืออะไร",
+    createdAt: new Date(), // หรือใช้ timestamp เช่น 1673539200000
+    description:
+      "อินเตอร์จ๊อบ แพลตฟอร์มเชื่อมโยงแรงงานไทยกับนายจ้างในอิสราเอล ผ่านกระบวนการถูกต้องตามกฎหมายและโปร่งใส",
+    tags: [
+      "อินเตอร์จ๊อบ",
+      "การทำงานต่างประเทศ",
+      "อิสราเอล",
+      "งานอิสราเอล",
+      "ประสบการณ์การทำงาน",
+      "แรงงานต่างชาติ",
+      "แรงงานไทย",
+      "โอกาสทำงาน",
+      "ต่างประเทศ",
+    ],
+    body: `
+<section>
+      <h1 style="padding-bottom:16px;">อินเตอร์จ๊อบ - โอกาสทำงานในอิสราเอลสำหรับแรงงานไทย</h1>
+      <p>
+        ยินดีต้อนรับสู่ <strong>อินเตอร์จ๊อบ (อินเตอร์จ๊อบ.com)</strong> แพลตฟอร์มที่ช่วยให้คุณค้นพบโอกาสการทำงานที่มั่นคงและรายได้ดีในต่างประเทศ โดยเฉพาะใน
+        <strong>ประเทศอิสราเอล</strong> เราเชื่อมโยงแรงงานไทยกับนายจ้างในอิสราเอล ผ่านขั้นตอนที่ถูกต้องตามกฎหมายและโปร่งใส เพื่อความมั่นใจและปลอดภัยในทุกขั้นตอน
+      </p>
+    </section>
+
+    <section>
+      <strong><h2 style="padding-top:24px;padding-bottom:8px;font-size:18px;">ทำไมต้องเลือกอินเตอร์จ๊อบ?</h2></strong>
+      <ul>
+        <li>
+          <strong>โอกาสการทำงานที่มั่นคง:</strong> อินเตอร์จ๊อบช่วยคุณค้นหางานที่มีรายได้ดีและมั่นคงในอิสราเอล พร้อมสัญญาจ้างงานที่ชัดเจนและปลอดภัย
+        </li>
+        <li>
+          <strong>การสนับสนุนครบวงจร:</strong> เราให้คำปรึกษาและสนับสนุนในทุกขั้นตอน ตั้งแต่การสมัครงาน การเตรียมเอกสาร การเดินทาง ไปจนถึงการใช้ชีวิตในต่างประเทศ
+        </li>
+        <li>
+          <strong>โปร่งใสและถูกต้องตามกฎหมาย:</strong> อินเตอร์จ๊อบทำงานร่วมกับหน่วยงานและองค์กรที่ได้รับการรับรองจากรัฐบาล เพื่อให้คุณมั่นใจในความปลอดภัยและถูกต้องตามกฎหมาย
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <strong><h2 style="padding-top:24px;padding-bottom:8px;font-size:18px;">บริการของอินเตอร์จ๊อบ</h2></strong>
+      <p>เราให้บริการที่ครอบคลุมเพื่อสนับสนุนการเดินทางไปทำงานในอิสราเอล:</p>
+      <ul>
+        <li><strong>ข้อมูลงานที่หลากหลาย:</strong> เรามีตำแหน่งงานในหลากหลายอุตสาหกรรม เช่น การเกษตร การก่อสร้าง และงานฝีมือ</li>
+        <li><strong>สนับสนุนด้านเอกสารและวีซ่า:</strong> ทีมงานผู้เชี่ยวชาญช่วยดูแลขั้นตอนการจัดเตรียมเอกสารและการสมัครวีซ่าอย่างครบถ้วน</li>
+        <li>
+          <strong>อบรมเตรียมความพร้อม:</strong> เราจัดอบรมเพื่อช่วยให้คุณปรับตัวกับวัฒนธรรมและวิถีชีวิตในอิสราเอลก่อนการเดินทาง
+        </li>
+      </ul>
+    </section>
+
+    <section>
+     <strong><h2 style="padding-top:24px;padding-bottom:8px;font-size:18px;">ทำงานในอิสราเอลดีอย่างไร?</h2></strong>
+      <p>การทำงานในอิสราเอลมีข้อดีหลายอย่างที่ช่วยให้คุณพัฒนาชีวิตและอาชีพการงาน:</p>
+      <ul>
+        <li><strong>ค่าตอบแทนสูง:</strong> อิสราเอลมีค่าแรงที่สูงเมื่อเทียบกับหลายประเทศ</li>
+        <li><strong>สวัสดิการดีเยี่ยม:</strong> แรงงานต่างชาติได้รับสิทธิประโยชน์และการคุ้มครองตามกฎหมายแรงงาน</li>
+        <li><strong>โอกาสพัฒนาทักษะ:</strong> คุณจะได้เรียนรู้เทคนิคการทำงานใหม่ ๆ ที่สามารถนำกลับมาใช้ประโยชน์ในอนาคต</li>
+      </ul>
+    </section>
+
+    <section>
+      <strong><h2 style="padding-top:24px;padding-bottom:8px;font-size:18px;">สมัครงานกับเรา</h2></strong>
+      <p>
+        หากคุณกำลังมองหาโอกาสในการทำงานในอิสราเอล อย่ารอช้า! <a href="https://อินเตอร์จ๊อบ.com/interested" target="_blank" style="text-decoration: underline;color: #1e4e89;font-weight: bold;">สมัครงานกับเรา</a> วันนี้
+        และก้าวสู่โอกาสใหม่ที่มั่นคงและมั่นใจในต่างประเทศ!
+      </p>
+    </section>
+    `,
+  },
+  {
     id: "1",
+    thumbnail: "/assets/images/content_1.jpg",
     cover: "/assets/images/content_1.jpg",
     title: "ประสบการณ์ทำงานในต่างประเทศ: จากไทยสู่อิสราเอล",
     sortTitle: "ทำงานต่างประเทศในอิสราเอล",
@@ -37,6 +116,7 @@ export const _mockBlogPosts: IBlogPost[] = [
   },
   {
     id: "2",
+    thumbnail: "/assets/images/content_2.jpg",
     cover: "/assets/images/content_2.jpg",
     title: "ทำงานในอิสราเอล: ข้อควรรู้ก่อนเดินทาง",
     sortTitle: "ข้อควรรู้การทำงานในอิสราเอล",
@@ -51,6 +131,7 @@ export const _mockBlogPosts: IBlogPost[] = [
   },
   {
     id: "3",
+    thumbnail: "/assets/images/content_3.jpg",
     cover: "/assets/images/content_3.jpg",
     title: "การเตรียมเอกสารและขั้นตอนในการสมัครงานในอิสราเอล",
     sortTitle: "เตรียมเอกสารทำงานในอิสราเอล",
@@ -66,6 +147,7 @@ export const _mockBlogPosts: IBlogPost[] = [
   },
   {
     id: "4",
+    thumbnail: "/assets/images/content_4.jpg",
     cover: "/assets/images/content_4.jpg",
     title: "ชีวิตความเป็นอยู่และการปรับตัวในอิสราเอล",
     sortTitle: "ปรับตัวชีวิตในอิสราเอล",
@@ -80,6 +162,7 @@ export const _mockBlogPosts: IBlogPost[] = [
   },
   {
     id: "5",
+    thumbnail: "/assets/images/content_5.jpg",
     cover: "/assets/images/content_5.jpg",
     title: "ค่าแรงและสวัสดิการในการทำงานที่อิสราเอล",
     sortTitle: "ค่าแรงและสวัสดิการในอิสราเอล",
@@ -94,6 +177,7 @@ export const _mockBlogPosts: IBlogPost[] = [
   },
   {
     id: "6",
+    thumbnail: "/assets/images/content_6.jpg",
     cover: "/assets/images/content_6.jpg",
     title: "การทำงานในภาคเกษตรกรรมที่อิสราเอล: ประสบการณ์ตรง",
     sortTitle: "ทำงานภาคเกษตรในอิสราเอล",
@@ -108,6 +192,7 @@ export const _mockBlogPosts: IBlogPost[] = [
   },
   {
     id: "7",
+    thumbnail: "/assets/images/content_7.jpg",
     cover: "/assets/images/content_7.jpg",
     title: "ข้อดีและข้อเสียของการทำงานในอิสราเอลสำหรับคนไทย",
     sortTitle: "ข้อดีข้อเสียการทำงานในอิสราเอล",
@@ -122,6 +207,7 @@ export const _mockBlogPosts: IBlogPost[] = [
   },
   {
     id: "8",
+    thumbnail: "/assets/images/content_8.jpg",
     cover: "/assets/images/content_8.jpg",
     title: "การทำงานในโครงการก่อสร้างในอิสราเอล: สิ่งที่ควรรู้",
     sortTitle: "งานก่อสร้างในอิสราเอล",
@@ -136,6 +222,7 @@ export const _mockBlogPosts: IBlogPost[] = [
   },
   {
     id: "9",
+    thumbnail: "/assets/images/content_9.jpg",
     cover: "/assets/images/content_9.jpg",
     title: "การจัดการเรื่องภาษีและกฎหมายแรงงานในอิสราเอล",
     sortTitle: "ภาษีและกฎหมายแรงงานในอิสราเอล",
@@ -150,3 +237,8 @@ export const _mockBlogPosts: IBlogPost[] = [
       `,
   },
 ];
+
+export function getPost(title: string) {
+  const post = find(_mockBlogPosts, ["sortTitle", title]);
+  return post;
+}

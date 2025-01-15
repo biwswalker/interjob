@@ -74,7 +74,7 @@ export default function BlogPostHero({ post }: Props) {
     >
       <StyledTitle>{title}</StyledTitle>
 
-      <StyledFooter>
+      {/* <StyledFooter>
         <Box sx={{ display: "flex", alignItems: "center" }}>
           <Box sx={{ ml: 2 }}>
             <Typography variant="body2" sx={{ color: "grey.500" }}>
@@ -82,7 +82,7 @@ export default function BlogPostHero({ post }: Props) {
             </Typography>
           </Box>
         </Box>
-      </StyledFooter>
+      </StyledFooter> */}
       <StyledOverlay />
       <Image alt="cover" src={cover} ratio="16/9" />
     </Box>

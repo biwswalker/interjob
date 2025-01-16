@@ -8,26 +8,26 @@ import { MotionViewport, varFade } from "@components/animate";
 
 const CARDS = [
   {
-    icon: " /assets/icons/ic_make_brand.svg",
-    title: "เรียนภาษา",
+    icon: " /assets/icons/ic_search.svg",
+    title: "ค้นหาและเลือกงานที่เหมาะสม",
     description:
-      "เพื่อเตรียมตัวสำหรับสอบไปทำงาน ประเทศอิสลาเอล ข้อสอบเป็นภาษาอัังกฤษ 100% จำเป็นต้องมีความรู้ อ่านออก เขียนได้",
+      "เลือกตำแหน่งงานและประเทศที่คุณสนใจผ่านแพลตฟอร์มจัดหางานที่ได้รับการรับรอง เช่น บริษัทจัดหางานที่ถูกกฏหมาย",
   },
   {
     icon: " /assets/icons/ic_question.svg",
-    title: "สอบภาษาให้ผ่าน",
+    title: "สมัครงานและเตรียมเอกสาร",
     description:
-      "การสอบมี 2 รอบ \n1. สอบอ่านและฟังข้อสอบเป็น ภาษาอังกฤษ 100% \n2. สอบพูดและสอบทักษะอาชีพ การใช้เครื่องมือทำงาน",
+      "ยื่นใบสมัครพร้อมเอกสารสำคัญ เช่น หนังสือเดินทาง ประวัติการทำงาน ใบรับรองแพทย์ และเอกสารอื่นๆที่บริษัทจัดหางานแจ้งให้จัดเตรียม",
   },
   {
     icon: " /assets/icons/ic_contract.svg",
     title: "รอสัญญาจ้าง",
     description:
-      "เมื่อสอบผ่านแล้วรอสัญญาจ้าง จากนายจ้างจะเป็นผู้เลือกตัว ไปทำงาน ขั้นตอนนี้จะใช้เวลาประมาณ 3-6 เดือน ระยะเวลาขึ้นอยู่กับ นายจ้างเท่านั้น",
+      "เมื่อสอบผ่านแล้วรอสัญญาจ้าง จากนายจ้างจะเป็นผู้เลือกตัว ไปทำงาน ขั้นตอนนี้จะใช้ระยะเวลาขึ้นอยู่กับ นายจ้างเท่านั้น",
   },
   {
     icon: " /assets/icons/ic_plane.svg",
-    title: "บินไปทำงานประเทศอิสลาเอล",
+    title: "บินไปทำงานต่างประเทศ",
     description:
       "เมื่อนายจ้างเรียกตัวแล้วจะทำการแจ้งให้เตรียมตัว เพื่อบินไปทำงานประเทศอิสลาเอล โดยรัฐจะเป็นผู้จัดส่งและดูแลตลอดการเดินทาง",
   },
@@ -72,13 +72,18 @@ export default function Works() {
 
           <m.div variants={varFade().inDown}>
             <Typography variant="h2">
-              ไปทำงาน<Typography variant="h2" component="span" color="warning.main">อิสลาเอล</Typography> <br />ใน 4 ขั้นตอน
+              ไปทำงาน
+              <Typography variant="h2" component="span" color="warning.main">
+                ต่างประเทศ
+              </Typography>{" "}
+              <br />
+              ใน 4 ขั้นตอน
             </Typography>
           </m.div>
         </Stack>
 
         <Box
-          gap={{ xs: 3, lg: 10 }}
+          gap={{ xs: 3, lg: 3 }}
           display="grid"
           alignItems="center"
           gridTemplateColumns={{
@@ -114,7 +119,9 @@ export default function Works() {
                     {card.title}
                   </Typography>
 
-                  <Typography sx={{ color: "text.secondary", fontWeight: 'light' }}>
+                  <Typography
+                    sx={{ color: "text.secondary", fontWeight: "light" }}
+                  >
                     {card.description}
                   </Typography>
                 </StyledCard>
@@ -122,6 +129,24 @@ export default function Works() {
             );
           })}
         </Box>
+
+        <Stack
+          spacing={3}
+          sx={{
+            textAlign: "center",
+            mt: { xs: 5, md: 6 },
+          }}
+        >
+          <m.div variants={varFade().inDown}>
+            <Typography variant="body1" fontWeight="light">
+              <Typography variant="subtitle1" component="span">
+                คำแนะนำ:
+              </Typography>{" "}
+              การทำงานในต่างประเทศอย่างถูกกฎหมายช่วยให้คุณมั่นใจในความปลอดภัยและสิทธิที่คุณควรได้รับ
+              อย่าลืมตรวจสอบข้อมูลและเลือกช่องทางที่น่าเชื่อถือเสมอ!
+            </Typography>
+          </m.div>
+        </Stack>
       </Container>
     </StyledRoot>
   );

@@ -48,7 +48,7 @@ const StyledGradientText = styled(m.h1)(({ theme }) => ({
   fontSize: `${64 / 16}rem`,
   fontWeight: 600,
   textAlign: "center",
-  lineHeight: 1,
+  lineHeight: 0.8,
   padding: 0,
   marginTop: 8,
   marginBottom: 8,
@@ -67,7 +67,7 @@ const StyledGradientYellowText = styled(m.h1)(({ theme }) => ({
   fontSize: `${64 / 16}rem`,
   fontWeight: 600,
   textAlign: "center",
-  lineHeight: 1,
+  lineHeight: 0.8,
   padding: 0,
   marginTop: 8,
   marginBottom: 8,
@@ -93,7 +93,12 @@ export default function Hero() {
             <Grid2 size={{ xs: 12 }}>
               <StyledDescription style={{ y, opacity }}>
                 <m.div variants={varFade().in}>
-                  <Stack direction="row">
+                  <Stack
+                    direction="row"
+                    flexWrap="wrap"
+                    alignItems="center"
+                    justifyContent="center"
+                  >
                     <StyledGradientText
                       animate={{ backgroundPosition: "200% center" }}
                       transition={{
@@ -116,6 +121,17 @@ export default function Hero() {
                     >
                       Job
                     </StyledGradientYellowText>
+                    <StyledGradientText
+                      animate={{ backgroundPosition: "200% center" }}
+                      transition={{
+                        repeatType: "reverse",
+                        ease: "linear",
+                        duration: 20,
+                        repeat: Infinity,
+                      }}
+                    >
+                      1999
+                    </StyledGradientText>
                   </Stack>
                 </m.div>
 
@@ -133,9 +149,11 @@ export default function Hero() {
                       },
                     }}
                   >
-                    ไปทำงานถูกกฏหมาย ผ่านขั้นตอนสอบ และส่งเดินทางโดยรัฐบาล
-                    <br />
-                    ความต้องการแรงงานต่างชาติในอิสราเอลมีจำนวนมาก
+                    สร้างอนาคตที่มั่นคงในต่างแดน
+                    ด้วยบริการจัดหางานที่เชื่อถือได้และกระบวนการที่โปร่งใสทุกขั้นตอน
+                    {/* ไปทำงานถูกกฏหมาย ผ่านขั้นตอนสอบ และส่งเดินทางโดยรัฐบาล */}
+                    {isDesktop ? <br /> : <> </>}
+                    ถูกต้องตามกฏหมาย100%
                   </Typography>
                 </m.div>
 

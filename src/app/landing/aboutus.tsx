@@ -9,7 +9,7 @@ import Iconify from "@components/iconify";
 import { MotionViewport, varFade } from "@components/animate";
 import { ROOTS_CONTENT, ROOTS_INTEREST } from "@constants/routes";
 import { useRouter } from "next/navigation";
-import NextLink from 'next/link'
+import NextLink from "next/link";
 
 const StyledRoot = styled("div")(({ theme }) => ({
   textAlign: "center",
@@ -69,7 +69,12 @@ export default function AboutWhat() {
 
           <Grid2 size={{ xs: 12, md: 6, lg: 5 }}>
             <m.div variants={varFade().inRight}>
-              <Typography variant="h2" sx={{ mb: 3 }} component={NextLink} href={`${ROOTS_CONTENT}/อินเตอร์จ๊อบคืออะไร`}>
+              <Typography
+                variant="h2"
+                sx={{ mb: 3 }}
+                component={NextLink}
+                href={`${ROOTS_CONTENT}/อินเตอร์จ๊อบคืออะไร`}
+              >
                 อินเตอร์จ๊อบคืออะไร?
               </Typography>
             </m.div>
@@ -83,11 +88,13 @@ export default function AboutWhat() {
                       : "common.white",
                 }}
               >
-                ยินดีต้อนรับสู่เว็บไซต์ อินเตอร์จ๊อบ (อินเตอร์จ๊อบ.com)
-                แหล่งรวมโอกาสการทำงานในต่างประเทศที่เชื่อถือได้
-                โดยเฉพาะสำหรับผู้ที่สนใจทำงานที่ประเทศอิสราเอล
-                เราเป็นแพลตฟอร์มที่สร้างขึ้นมาเพื่อเชื่อมโยงแรงงานไทยกับนายจ้างในอิสราเอล
-                โดยผ่านกระบวนการที่ถูกต้องตามกฎหมายและโปร่งใส
+                อินเตอร์จ๊อบ (InterJob1999)
+                คือแพลตฟอร์มออนไลน์ที่ออกแบบมาเพื่อช่วยเชื่อมโยงแรงงานไทยกับโอกาสการทำงานในต่างประเทศ
+                โดยมีวัตถุประสงค์หลักในการส่งเสริมการทำงานที่ถูกต้องตามกฎหมาย
+                และลดปัญหาการแสวงหาผลประโยชน์จากแรงงานไทย
+                อินเตอร์จ๊อบไม่เพียงแต่เป็นสื่อกลางระหว่างผู้ว่าจ้างในต่างประเทศและแรงงานไทย
+                แต่ยังเป็นแหล่งข้อมูลสำคัญที่ให้คำแนะนำเกี่ยวกับเอกสาร
+                การขอวีซ่า และกระบวนการทำงานที่ปลอดภัย
               </Typography>
             </m.div>
 

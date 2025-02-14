@@ -34,6 +34,10 @@ const navConfig = [
     title: "บทความ",
     path: "/contents",
   },
+  {
+    title: "งานทั้งหมด",
+    path: "/jobs",
+  },
 ];
 
 // const BoxTextRunnerContainer = styled(Box)(() => ({

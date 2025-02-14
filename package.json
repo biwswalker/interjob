@@ -9,7 +9,7 @@
     "lint": "next lint",
     "docker:tag": "docker tag interjob biwswalker/interjob",
     "docker:create": "docker buildx create --name interjob --use",
-    "docker:push": "docker buildx build --platform linux/amd64,linux/arm64 -t biwswalker/interjob:latest --push ."
+    "build:docker": "docker buildx build --platform linux/amd64 -t biwswalker/interjob:latest --push ."
   },
   "dependencies": {
     "@emotion/cache": "^11.14.0",
